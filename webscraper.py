@@ -117,7 +117,7 @@ def section_parser(dept_table) -> list:
 
 
 def main():
-    startTime = datetime.now()
+    start_time = datetime.now()
 
     semester_url = "https://www.macalester.edu/registrar/schedules/2020fall/class-schedule/"
     semester_requests = requests.get(semester_url).text
@@ -131,7 +131,7 @@ def main():
     with open('fall20.json', 'w') as fout:
         json.dump(export_dict, fout, indent=4)
 
-    print('\nTime elasped: ', datetime.now() - startTime)
+    print('\nTime elasped: ', datetime.now() - start_time)
 
 
 if __name__ == '__main__':
