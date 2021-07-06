@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import json
 import re
 import requests
-from datetime import *
+from datetime import now
 from concurrent.futures import ThreadPoolExecutor
 
 distributions = {"Writing WA", "Writing WP", "Writing WC", "U.S. Identities and Differences", "Internationalism",
@@ -117,7 +117,7 @@ def section_parser(dept_table) -> list:
 
 
 def main():
-    start_time = datetime.now()
+    start_time = now()
 
     semester_url = "https://www.macalester.edu/registrar/schedules/2020fall/class-schedule/"
     semester_requests = requests.get(semester_url).text
