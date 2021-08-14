@@ -109,7 +109,7 @@ def section_parser(dept_table) -> list:
 def main():
     start_time = now()
 
-    semester_url = "https://www.macalester.edu/registrar/schedules/2020fall/class-schedule/"
+    semester_url = "https://www.macalester.edu/registrar/schedules/2021fall/class-schedule/"
     semester_requests = requests.get(semester_url).text
     bs4_content = BeautifulSoup(semester_requests, "lxml")
 
@@ -117,8 +117,8 @@ def main():
     courses = section_grouper(section_scraper(bs4_content))
 
     # export as JSON
-    export_dict = {"fall20": courses}
-    with open('fall20.json', 'w') as fout:
+    export_dict = {"fall21": courses}
+    with open('fall21.json', 'w') as fout:
         json.dump(export_dict, fout, indent=4)
 
     print('\nTime elasped: ', datetime.now() - start_time)
